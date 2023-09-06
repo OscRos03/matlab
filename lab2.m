@@ -79,5 +79,26 @@ c = [
 [rc, kc] = size(c)
 % Vice versa för c, det är en radvektor eftersom det endast finns 1 rad
 
-max(A, [], "all")
-min(A, [], "all")
+[AMax, IAMax] = max(A, [], [1 2], "linear")
+[AMin, IAMin] = min(A, [], [1 2], "linear")
+
+% Tror inte detta var hur man skulle göra detta men det är methemagic time.
+
+[rA, kA] = size(A);
+
+yAMax = rA - mod(IAMax, rA)
+xAMax = (IAMax - mod(IAMax, rA)) ./ rA
+
+yAMin = rA - mod(IAMin, rA)
+xAMin = (IAMin - mod(IAMin, rA)) ./ rA
+
+%%
+
+clc, clear;
+
+% Uppgift 4
+
+arr = [1, 2, 3, 4, 5];
+arr = arr.^2;
+
+s = sum(arr)
