@@ -1,8 +1,8 @@
 clear, clc;
 
 % Uppgift 1
-r = 4
-A = pi * r^2;
+r = 4;
+A = pi * r^2
 
 %%
 
@@ -24,7 +24,7 @@ s = 0
 % For-loop för att iterera över 1:5
 for i = 1:5
     % Addera i^2 till s
-    s = s + i^2;
+    s = s + i.^2;
 end
 
 % Skriv ut s
@@ -39,10 +39,10 @@ clear, clc;
 x = linspace(-10, 10);
 y = noll_fun(x);
 
-z1 = fzero(@noll_fun, -1);
-z2 = fzero(@noll_fun, 1);
+z1 = fzero(@noll_fun, -1)
+z2 = fzero(@noll_fun, 1)
 
-plot(x, y, 2)
+plot(x, y)
 xlabel('x')
 ylabel('y')
 title('f = x.^2 - cos(x)')
