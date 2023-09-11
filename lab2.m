@@ -93,11 +93,14 @@ c = [
 
 [rA, kA] = size(A);
 
-yAMax = rA - mod(IAMax, rA)
-xAMax = (IAMax - mod(IAMax, rA)) ./ rA
+yAMax = rA - mod(IAMax, rA);
+xAMax = (IAMax - mod(IAMax, rA)) ./ rA;
 
-yAMin = rA - mod(IAMin, rA)
-xAMin = (IAMin - mod(IAMin, rA)) ./ rA
+yAMin = rA - mod(IAMin, rA);
+xAMin = (IAMin - mod(IAMin, rA)) ./ rA;
+
+AMaxPos = [xAMax, yAMax]
+AMinPos = [xAMin, yAMin]
 
 %%
 
