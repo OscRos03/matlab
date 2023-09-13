@@ -52,6 +52,13 @@ b2 = [
 E2 = [A2 b2];
 R2 = rref(E2)
 
+% x1 = 1 - t
+% x2 = -2
+% x3 = 1 - t
+% x4 = t
+
+% {(1 - t, -2, 1 - t, t): t är reell}
+
 %%
 
 clc, clear;
@@ -86,11 +93,14 @@ c = [
 
 [rA, kA] = size(A);
 
-yAMax = rA - mod(IAMax, rA)
-xAMax = (IAMax - mod(IAMax, rA)) ./ rA
+yAMax = rA - mod(IAMax, rA);
+xAMax = (IAMax - mod(IAMax, rA)) ./ rA;
 
-yAMin = rA - mod(IAMin, rA)
-xAMin = (IAMin - mod(IAMin, rA)) ./ rA
+yAMin = rA - mod(IAMin, rA);
+xAMin = (IAMin - mod(IAMin, rA)) ./ rA;
+
+AMaxPos = [xAMax, yAMax]
+AMinPos = [xAMin, yAMin]
 
 %%
 
