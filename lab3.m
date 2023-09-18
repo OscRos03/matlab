@@ -1,7 +1,7 @@
 clear, clc;
 
 % Uppgift 1
-x = linspace(-pi/2 + 0.01, pi/2 + 0.01);
+x = linspace(-pi/2 + 0.01, pi/2 - 0.01);
 plot(x, tan(x))
 
 % Eftersom tan(pi/2) är odefinierat
