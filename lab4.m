@@ -25,6 +25,15 @@ end
 tot * 4
 j
 
+tot = 0;
+
+for j = 0:1000
+    tot = tot + ((-1) .^ j) / (2 .* j + 1);
+end
+
+tot * 4
+j
+
 %%
 
 clear, clc
