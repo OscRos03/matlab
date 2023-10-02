@@ -52,6 +52,7 @@ clear, clc;
 %%
 clear, clc;
 hold on
+axis([-2, 6, -15, 15])
 
 % Uppgift 3
 x = linspace(-50, 50, 1000);
@@ -89,7 +90,7 @@ end
 %%
 clear, clc
 hold on
-axis([-1.5, 0.6, -1.5, 1])
+axis([-5, 6, -1, 1])
 
 % Uppgift 4
 x = linspace(-20, 20, 1000);
@@ -100,7 +101,11 @@ plot(x, 0 * x)
 plot(x, f(x))
 
 n = [-3.22, -1.3, -0.3, 1.8, 3, 4.5];
+k = [];
 
 for i = 1:size(n, 2)
-    fzero(f, n(i))
+    k(i) = fzero(f, n(i));
+    plot(k(i), f(k(i)), 'o r')
 end
+
+k
