@@ -1,25 +1,65 @@
-% Vänster rektangelregel
-clear
+clear, clc
 
-hold on
+n = 50;
+a = 0;
+b = 3;
+f = @(x) x .* cos(x);
+
+x = linspace(a, b, n+1);
+h = (b - a) / n;
+g = f(x(1:n));
+
+q = sum(h*g)
+
+error = -1 + 3 .* sin(3) + cos(3) - q
 
 n = 200;
 
-from = 0;
-to = 3;
+x = linspace(a, b, n+1);
+h = (b - a) / n;
+g = f(x(1:n));
 
-x = linspace(from, to, 1000);
+q = sum(h*g)
 
-dx = (to - from) / n;
+error2 = -1 + 3 .* sin(3) + cos(3) - q
 
-f = @(x)x * cos(x);
+error / error2
 
-sum = 0;
+%%
 
-for i = 0:(n-1)
-   sum = sum + f(i * dx) * dx;
+clear, clc
+hold on
+
+n = 50;
+a = 0;
+b = 3;
+f = @(x) x .* cos(x);
+
+w = (b-a) / n;
+q = 0;
+
+for i = 1:n
+    x = a + i * w;
+    x2 = a + (i-1) * w;
+    q = q + (w * (f(x2) + f(x)))/2;
 end
 
-sum
+error = -1 + 3 .* sin(3) + cos(3) - q
 
-error = -1 + 3 * sin(3) + cos(3) - sum
+n = 200;
+a = 0;
+b = 3;
+f = @(x) x .* cos(x);
+
+w = (b-a) / n;
+q = 0;
+
+for i = 1:n
+    x = a + i * w;
+    x2 = a + (i-1) * w;
+    q = q + (w * (f(x2) + f(x)))/2;
+end
+
+error2 = -1 + 3 .* sin(3) + cos(3) - q
+
+error/error2
