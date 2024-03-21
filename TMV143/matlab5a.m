@@ -34,8 +34,8 @@ quiver(U1, U2, F1, F2, 0.9)
 axis([-1 5 -1 5])
 hold on
 
-% plot(U(:, 1), U(:, 2), 'r', 'LineWidth', 2)
+plot(U(:, 1), U(:, 2), 'r', 'LineWidth', 2)
 
 plot(V)
 
-C = V \ u0;
+C = V\u0;
