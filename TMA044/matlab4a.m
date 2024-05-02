@@ -4,7 +4,7 @@ hold off
 grid on, box on
 
 syms x y
-f_ = -5 .* x .^ 3 + 4 .* x .* y + 6 .* y .^ 3 - 3;
+f_ = -2 .* x .^ 3 + 3 .* y .* x - 4 .* y .^ 3 + 3;
 f = matlabFunction(f_);
 
 dfdx_ = diff(f_, x);
@@ -27,10 +27,10 @@ y = linspace(-2, 2, 30);
 [X, Y] = meshgrid(x, y);
 Z = f(X, Y);
 
-subplot(1, 2, 1)
+subplot(2, 1, 1)
 surf(x, y, Z);
 
-subplot(1, 2, 2)
+subplot(2, 1, 2)
 hold on
 contour(X, Y, Z, 10)
 Z = dfdx(X, Y);
@@ -39,7 +39,7 @@ Z = dfdy(X, Y);
 contour(X, Y, Z, [0 0])
 hold off
 
-xStart = [-0.2; 0.2];
+xStart = [0.3; 0.3];
 kmax = 100;
 tol = 10^-6;
 
@@ -48,7 +48,7 @@ for k=1:kmax
     plot(xStart(1), xStart(2), 'ro')
     hold off
 
-    h=-J(xStart(1), xStart(2))\H(xStart(1), xStart(2));
-    xStart=xStart+h';
+    h=H(xStart(1), xStart(2))\-J(xStart(1), xStart(2));
+    xStart=xStart+h;
     if norm(h)<tol, break, end
 end
