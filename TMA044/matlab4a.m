@@ -4,7 +4,7 @@ hold off
 grid on, box on
 
 syms x y
-f_ = -2 .* x .^ 3 + 3 .* y .* x - 4 .* y .^ 3 + 3;
+f_ = -4 .* x .^ 3 + 5 .* y .* x + 6 .* y .^ 3 + 2;
 f = matlabFunction(f_);
 
 dfdx_ = diff(f_, x);
@@ -39,7 +39,7 @@ Z = dfdy(X, Y);
 contour(X, Y, Z, [0 0])
 hold off
 
-xStart = [0.3; 0.3];
+xStart = [-0.3; 0.3];
 kmax = 100;
 tol = 10^-6;
 
@@ -52,3 +52,5 @@ for k=1:kmax
     xStart=xStart+h;
     if norm(h)<tol, break, end
 end
+
+eig(H(xStart(1), xStart(2)))
